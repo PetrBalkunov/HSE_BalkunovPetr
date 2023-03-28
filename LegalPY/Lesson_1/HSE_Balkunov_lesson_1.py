@@ -11,3 +11,7 @@ print(type(a))
 
 for i in a:
     print(i)
+
+
+number_1 = input(int(is.digit('Введите число ')))
+print (number_1)
