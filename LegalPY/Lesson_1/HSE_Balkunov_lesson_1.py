@@ -79,3 +79,5 @@ focus = (select_number + int(str(select_number) + str(select_number))
 + int(str(select_number) + str(select_number) + str(select_number)))
 
 print(f'Ваше число успело несколько раз преобразиться в число, потом в строку и обратно. Получилось {focus}. Фокус-покус!')
+
+
