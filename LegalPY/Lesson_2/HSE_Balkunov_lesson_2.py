@@ -36,4 +36,8 @@ print(my_list)
 # print(d)
 
 
-from lesson_2_data import courts, respondents
+from lesson_2_data import courts, repondents
+
+
+
+
