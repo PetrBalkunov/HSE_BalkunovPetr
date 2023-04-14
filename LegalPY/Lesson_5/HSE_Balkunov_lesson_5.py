@@ -37,7 +37,7 @@ import pandas
 import re
 
 
-'''
+
 file = open('traders.txt')
 inn_search = file.read().split()
 file.close()
@@ -58,6 +58,7 @@ for org_info in traders_list:
 dataframe_org = pandas.DataFrame(org_list, columns=['Наименование', 'ИНН', 'ОГРН', 'Адрес'])
 #print(dataframe_org.head(3))
 dataframe_org.to_csv('traders.csv', encoding='utf-8')
+
 '''
 # Задание 2.
 
@@ -108,3 +109,4 @@ def write_emails_dict(publisher_info):
 
 write_emails_dict(publisher_info)
 print('Количество ИНН с email адресами:', len(publisher_info))
+'''
