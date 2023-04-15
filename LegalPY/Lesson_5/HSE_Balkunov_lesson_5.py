@@ -59,7 +59,6 @@ dataframe_org = pandas.DataFrame(org_list, columns=['Наименование', 
 #print(dataframe_org.head(3))
 dataframe_org.to_csv('traders.csv', encoding='utf-8')
 
-'''
 # Задание 2.
 
 file = open('10000_efrsb_messages.json')
@@ -109,4 +108,3 @@ def write_emails_dict(publisher_info):
 
 write_emails_dict(publisher_info)
 print('Количество ИНН с email адресами:', len(publisher_info))
-'''
