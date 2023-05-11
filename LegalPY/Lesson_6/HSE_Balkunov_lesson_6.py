@@ -101,9 +101,9 @@ clean_events = filter_events(calendar_events)
 print (clean_events[5:7])
 
 def print_court_dates (clean_events):
-        # create document object
+        # Можно выгрузить данные о датах судебных заседаний в вордовский файл
     doc = aw.Document()
-    # create a document builder object
+    # create a document builder object это уже специальные методы работы для ворда
     builder = aw.DocumentBuilder(doc)
     title_head = 'Хронология судебных заседаний по делу № А40-183194-2015: \n\n'
     builder.write(title_head)
