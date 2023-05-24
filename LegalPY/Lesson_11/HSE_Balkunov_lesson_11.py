@@ -26,19 +26,27 @@ class SirotinskyAPI:
         r = requests.post('https://api.sirotinsky.com/token', data={'username': login, 'password': password})
         data = r.json()
         self.private_token = data['access_token']
-        #print (r.status_code)
-        #print (r.text)
 
-    def get_manager_efrsb(self):
+
+    def get_efrsb_data(self):
+        end_point = input('Выберите раздел: 1. manager; 2. trader; 3. person; 4. organisation;\n')
+        data_types = {1: 'manager', 2: 'trader', 3: 'person', 4: 'organisation'}
         inn = input('Введите ИНН: ')
-        r = requests.get(f'https://api.sirotinsky.com/{self.private_token}/efrsb/manager/{inn}')
-        print(r.status_code)
-        return r.text
-
+        r = requests.get(f'https://api.sirotinsky.com/{self.private_token}/efrsb/{data_types[int(end_point)]}/{inn}')
+        if r.status_code == 200:
+            print('Статус запроса: успешно!')
+            if r.text != 'null':
+                print(r.text)
+            else:
+                print('Данные не найдены')
+        else:
+            print('Статус запроса: ошибка!')
 
 
 efrsb_sirot = SirotinskyAPI('HSE_student', '123123123')
-manager_info = efrsb_sirot.get_manager_efrsb()
-print(manager_info)
+efrsb_info = efrsb_sirot.get_efrsb_data()
+
+
+
 
 
