@@ -14,3 +14,31 @@
 ●	Логин: HSE_student
 ●	Пароль: 123123123
 '''
+
+import requests
+
+class SirotinskyAPI:
+
+    def __init__(self, login, password):
+        self.__get_token(login, password)
+
+    def __get_token (self, login, password):
+        r = requests.post('https://api.sirotinsky.com/token', data={'username': login, 'password': password})
+        data = r.json()
+        self.private_token = data['access_token']
+        #print (r.status_code)
+        #print (r.text)
+
+    def get_manager_efrsb(self):
+        inn = input('Введите ИНН: ')
+        r = requests.get(f'https://api.sirotinsky.com/{self.private_token}/efrsb/manager/{inn}')
+        print(r.status_code)
+        return r.text
+
+
+
+efrsb_sirot = SirotinskyAPI('HSE_student', '123123123')
+manager_info = efrsb_sirot.get_manager_efrsb()
+print(manager_info)
+
+
